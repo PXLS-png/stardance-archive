@@ -334,8 +334,165 @@
             opacity: 1;
         }
 
+/*This finna be the time widget*/
+.time-widget {
+    position: fixed;
+    bottom: 14px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(6px);
+    padding: 8px 14px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: inset 0 1px 4px rgba(255, 255, 255, 0.3);
+    z-index: 1000;
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-size: 0.7rem;
 
+}
+.time-row {
+display: flex;
+justify-content: space-between;
+gap: 12px;
+line-height: 1.6;
+}
 
+.time-label {
+    color: rgba(0, 40, 80, 0.45);
+    font-weight: 700;
+    letter-spacing: 1px;
+    font-size: 0.6rem;
+
+}
+.time-value {
+    color: #003d5c;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+}
+
+/*Here comes the Eclipse easter egg!*/
+.eclipse {
+    position: fixed;
+    top: 70px;
+    right: 20px;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    overflow: hidden;
+    z-index: 999;
+    cursor: pointer;
+    display: none;
+    box-shadow: 0 0 20px 4px rgba(255, 180, 80, 0.4);
+    transition: transform 0.2s ease;
+}
+.eclipse:hover {
+    transform: scale(1.1);
+
+}
+.eclipse.is-visible {
+    display: block;
+
+}
+.eclipse-sun {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: radial-gradient(circle at 40% 35%, #fff4c8 0%, #ffb830 45%, #ff7a00 100%);
+    box-shadow: 0 0 15px 3px rgba(255, 160, 60, 0.6);
+
+}
+
+.eclipse-moon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: #0a1a2a;
+    animation: eclipse-slide 8s ease-in-out infinite;
+}
+
+@keyframes eclipse-slide {
+    0% { transform: translateX(-75px); }
+    40% { transform: translateX(0); }
+    60% { transform: translateX(0); }
+    100% { transform: translateX(75px); }
+
+}
+
+.eclipse-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 20, 40, 0.4);
+    backdrop-filter: blur(6px);
+    z-index: 1001;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.eclipse-modal.is-open {
+    display: flex;
+}
+.eclipse-modal-box {
+    position: relative;
+    max-width: 340px;
+    padding: 30px 24px;
+    border-radius: 20px;
+    background: linear-gradient(180deg, 
+    rgba(255, 255, 255, 0.9) 0%,
+    rgba(215, 248, 255, 0.75) 100%);
+    border: 2px solid rgba(255, 255, 255, 0.85);
+    box-shadow: 0 10px 40px rgba(0, 40, 80, 0.3),
+    inset 0 3px 12px rgba(255, 255, 255, 0.95);
+    text-align: center;
+
+}
+.eclipse-close {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    background: transparent;
+    border: none;
+    color: rgba(0, 40, 80, 0.5);
+    font-size: 1.1rem;
+    cursor: pointer;
+    padding: 2px 6px;
+    margin: 0;
+    box-shadow: none;
+    transition: color 0.15s ease;
+
+}
+.eclipse-close:hover {
+    color: #003d5c;
+    transform: none;
+    box-shadow: none;
+}
+.eclipse-quote {
+    font-size: 1rem;
+    font-style: italic;
+    color: #003d5c;
+    line-height: 1.6;
+    margin: 0 0 20px 0;
+
+}
+.eclipse-link {
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #003d5c;
+    text-decoration: none;
+    background: rgba(255, 255, 255,0.5);
+    padding: 8px 16px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    transition: 0.15s ease;
+}
+.eclipse-link:hover {
+    background: rgba(255, 255, 255, 0.8);
+    transform: translateY(-1px);
+}
         </style>
     </head>
     <body>
@@ -396,6 +553,43 @@
         </div>
     </section>
     </main>
+
+
+    <div class="disclaimer">
+        Fan-made project inspired by Life is Strange.
+        All rights belong to their respective owners (Dontnod Entertainment & Square Enix). 
+        This is an unofficial project and is not affiliated with or endorsed by them.
+
+    </div>
+    <div class="time-widget">
+        <div class="time-row">
+            <span class="time-label">WARREN</span>
+            <span class="time-value" id="time-warren">--:--:--</span>
+            </div>
+            <div class="time-row">
+                <span class="time-label">YOU</span>
+                <span class="time-value" id="time-you">--:--:--</span>
+            </div>
+        </div>
+
+        <div class="eclipse" id="eclipse">
+            <div class="eclipse-sun"></div>
+            <div class="eclipse-moon"></div>
+        </div>
+
+        <div class="eclipse-modal" id="eclipse-modal">
+            <div class="eclipse-modal-box">
+                <button class="eclipse-close" id="eclipse-close">✕</button>
+                <p class="eclipse-quote">
+                    "Max, there was no eclipse scheduled today...I would know. I would."
+                </p>
+                <a class="eclipse-link" href="https://www.youtube.com/results?search_query=mt+washington+local+natives"
+                target="_blank" rel="noopener noreferrer">
+            ♫ Mt. Washington - Local Natives 
+        </a>
+        </div>
+        </div>
+
     <script>
         const movies = [
             "The Matrix (1999)",
@@ -576,7 +770,318 @@
             "Interview with the Vampire (1994)",
             "The Hunger (1983)",
             "The Lost Boys (1987)",
-            "Let the Right One In (2008)"
+            "Let the Right One In (2008)",
+            "Desire Me (1947)",
+            "Devil in the Flesh (1947)",
+            "Possesed (1947)",
+            "Mr. Nobody (2009)",
+            "Following (1998)",
+            "Animal Farm (1954)",
+            "Bunraku (2010)",
+            "Underground Fighter (2006)",
+            "Cypher (2002)",
+            "BloodRayne (2005)",
+            "Underworld (2003)",
+            "Ultraviolet (2006)",
+            "Blade II (2002)",
+            "The Forsaken (2001)",
+            "Bitten (2008)",
+            "Vamp (1986)",
+            "Jennifer's Body (2009)",
+            "The Rocky Horror Picture Show (1975)",
+            "Eraserhead (1977)",
+            "Scooby-Doo and the Ghoul School (1988)",
+            "Kite (1998)",
+            "Dumpling (2004)",
+            "Source Code (2011)",
+            "Cube (1997)",
+            "Stalker (1979)",
+            "The Ice Pirates (1984)",
+            "Spacehunters: Adventures in the Forbidden Zone (1983)",
+            "Dark City (1998)",
+            "Strange Days (1995)",
+            "Cargo (2009)",
+            "eXistenZ (1999)",
+            "The Black Hole (1979)",
+            "Upstream Color (2013)",
+            "Triangle (2009)",
+            "12 Monkeys (1995)",
+            "The Fifth Element (1997)",
+            "The Animatrix (2003)",
+            "Ice Planet (2001)",
+            "Plan 9 from Outer Space (1957)",
+            "Repo Men (2010)",
+            "Videodrome (1983)",
+            "Sky Captain and the World of Tomorrow (2004)",
+            "Pandorum (2009)",
+            "War of the Worlds (2005)",
+            "The Man Who Thought Life (1969)",
+            "Altered States (1980)",
+            "The City of Lost Children (1995)",
+            "Memories (1995)",
+            "Species (1995)",
+            "Mimic (1997)",
+            "Splice (2009)",
+            "Inseminoid (1981)",
+            "The Incredible Melting Man (1977)",
+            "Re-Animator (1985)",
+            "From Beyond (1986)",
+            "Fortress (1992)",
+            "Vanilla Sky (2001)",
+            "Mysterious Skin (2004)",
+            "The Deadly Spawn (1983)",
+            "Shorts (2009)",
+            "Phantasm (1979)",
+            "The Lathe of Heaven (1980)",
+            "Origin: Spirits of the Past (2006)",
+            "King of Thorn (2010)",
+            "At the Earth's Core (1976)",
+            "Magic Crystal (1986)",
+            "Viking (2022)",
+            "Vegas in Space (1991)",
+            "Foxfur (2012)",
+            "Heavy Metal 2000 (2000)",
+            "Heavy Metal (1981)",
+            "I Am Here...Now (2009)",
+            "The Cat from Outer Space (1978)",
+            "The Jacket (2005)",
+            "Paprika (2006)",
+            "Ghost in the Shell (1995)",
+            "Wonderful Days (2003)",
+            "Redline (2009)",
+            "Cowboy Bebop (1998)",
+            "Dallos (1983)",
+            "Patlabor: The Movie (1989)",
+            "The Sky Crawlers (2008)",
+            "Venus Wars (1989)",
+            "Cyber City Oedo 808 (1990)",
+            "Neo Tokyo (1987)",
+            "Urusei Yatsura: Beautiful Dreamer (1984)",
+            "Millenium Actress (2001)",
+            "Dead Leaves (2004)",
+            "In the Aftermath (1988)",
+            "Re: Cutie Honey (2004)",
+            "Martian Successor Nadesico: The Motion Picture - Prince of Darkness (1998)",
+            "Bio Hunter (1995)",
+            "Angel Cop (1989)",
+            "Goku Midnight Eye (1989)",
+            "Megazone 23 II (1986)",
+            "Megazone 23 (1985)",
+            "Dislocation (1986)",
+            "Sixty Million Dollar Man (1995)",
+            "CJ7 (2008)",
+            "The Wicked City (1992)",
+            "Wonder Boy (1988)",
+            "House (1977)",
+            "Crime Wave (1985)",
+            "Funeral Parade of Roses (1969)",
+            "Night Tide (1961)",
+            "Phantasm (1979)",
+            "Folies Meurtrières (1984)",
+            "Uma to onna to inu (1990)",
+            "Daisies (1966)",
+            "The Passion of Joan of Arc (1928)",
+            "Children of Paradise (1945)",
+            "The Young Girls of Rochefort (1967)",
+            "The Departure (1967)",
+            "Breathless (1960)",
+            "Elevator to the Gallows (1958)",
+            "Fantastic Planet (1973)",
+            "Purple Noon (1960)",
+            "Jeanne Dielman, 23, quai du Commerce, 1080 Bruxelles (1975)",
+            "Hiroshima Mon Amour (1959)",
+            "The Big Blue (1988)",
+            "A Man and a Woman (1966)",
+            "Jules and Jim (1962)",
+            "The Bride Wore Black (1968)",
+            "The Man Who Loved Women (1977)",
+            "Pépé le Moko (1937)",
+            "The 400 Blows (1959)",
+            "Shoot the Piano Player (1960)",
+            "Day for Night (1973)",
+            "A Woman Is a Woman (1961)",
+            "Beauty and the Beast (1946)",
+            "May Fools (1990)",
+            "Portrait of a Young Girl at the End of the 60s in Brussels (1994)",
+            "The Meetings of Anna (1978)",
+            "Vagabong (1985)",
+            "Le Samourai (1967)",
+            "Le Cercle Rouge (1970)",
+            "Rabbit's Moon (1971)",
+            "Forbidden Zone (1980)",
+            "Tootsie (1982)",
+            "Fargo (1996)",
+            "You Again (2010)",
+            "The Proposal (2009)",
+            "Dinner for Schmucks (2010)",
+            "Love Actually (2003)",
+            "The Jerk (1979)",
+            "Forgetting Sarah Marshall (2008)",
+            "Legally Blonde (2001)",
+            "Meet the Parents (2000)",
+            "Romy and Michele's High School Reunion (1997)",
+            "10 Things I Hate About You (1999)",
+            "Mean Girls (2004)",
+            "Bridesmaids (2011)",
+            "There's Something About Mary (1998)",
+            "Clueless (1995)",
+            "Hairspray (2007)",
+            "Elf (2003)",
+            "Office Space (1999)",
+            "Napoleon DYnamite (2004)",
+            "His Girl Friday (1940)",
+            "Ferris Bueller's Day Off (1986)",
+            "When Harry Met Sally... (1989)",
+            "Underworld (2003)",
+            "Ocean's Thirteen (2007)",
+            "Se7en (1995)",
+            "Nightcrawler (2014)",
+            "Kill Bill: Vol. 2 (2004)",
+            "Star Wars: Episode I - The Phantom Menace (1999)",
+            "American Psycho (2000)",
+            "Labyrinth (1986)",
+            "Good Will Hunting (1997)",
+            "Taxi Driver (1976)",
+            "Kill Bill: Vol. 1 (2003)",
+            "Dead Poets Society (1989)",
+            "Fight Club (1999)",
+            "The Perks of Being a Wallflower (2012)",
+            "The Dark Knight (2008)",
+            "The Terminator (1984)",
+            "The Silence of the Lambs (1991)",
+            "Mystery Train (1989)",
+            "Do the Right Thing (1989)",
+            "High Hopes (1988)",
+            "Crimes and Misdemeanors (1989)",
+            "Grave of the Fireflies (1988)",
+            "The Little Mermaid (1989)",
+            "Field of Dreams (1989)",
+            "Say Anything... (1989)",
+            "The Fabulous Baker Boys (1989)",
+            "Black Rain (1989)",
+            "Batman (1989)",
+            "Indiana Jones and the Last Crusade",
+            "A Short Film About Love (1988)",
+            "Drugstore Cowboy (1989)",
+            "The Abyss (1989)",
+            "The Seventh Continent (1989)",
+            "On the Silver Globe (1988)",
+            "For All Mankind (1989)",
+            "Tetsuo: The Iron Man (1989)",
+            "Dead Calm (1989)",
+            "Under the Sun of Satan (1987)",
+            "Major League (1989)",
+            "Henry V (1989)",
+            "Back to the Future Part II (1989)",
+            "Eat a Bowl of Tea (1989)",
+            "Bill & Ted's Excellent Adventure (1989)",
+            "Sea of Love (1989)",
+            "The Adventures of Baron Munchausen (1988)",
+            "My Left Foot: The Story of Christy Brown (1989)",
+            "Brief Encounter (1945)",
+            "Titanic (1997)",
+            "Chungking Express (1994)",
+            "Before Sunset (2004)",
+            "2046 (2004)",
+            "In the Mood for Love (2000)",
+            "Happy Together (1997)",
+            "Fallen Angels (1995)",
+            "Pauline at the Beach (1983)",
+            "Imagine Me & You (2005)",
+            "True Romance (1993)",
+            "Notting Hill (1999)",
+            "Love in the Afternoon (1972)",
+            "The Green Ray (1986)",
+            "My Night at Maud's (1969)",
+            "Boyfriends and Girlfriends (1987)",
+            "Sidewalls (2011)",
+            "Casablanca (1942)",
+            "Days of Being Wild (1990)",
+            "Gone With the Wind (1939)",
+            "The Parent Trap (1998)",
+            "Scenes from a Marriage (1974)",
+            "The Childrens's Hour (1961)",
+            "The Flower of My Secret (1995)",
+            "Same Love, Same Rain (1999)",
+            "Desert Hearts (1985)",
+            "Harry Potter and the Deathly Hollows Part 2 (2011)",
+            "Jurassic Park (1993)",
+            "Shaun of the Dead (2004)",
+            "Spider-Man 2 (2004)",
+            "The Social Network (2010)",
+            "American Pie (1999)",
+            "The Breakfast Club (1985)",
+            "Superbad (2007)",
+            "Ghostbusters (1984)",
+            "Kick-Ass (2010)",
+            "Gladiator (2000)",
+            "The Dark Knight (2008)",
+            "Slumdog Millionaire (2008)",
+            "Hot Rod (2007)",
+            "Mamma Mia! (2008)",
+            "Swing Girls (2004)",
+            "Withnail & I (1987)",
+            "RED (2010)",
+            "Zoolander (2001)",
+            "Superbad (2007)",
+            "D.E.B.S (2004)",
+            "Charlie's Angels (2000)",
+            "Scott Pilgrim vs. the World (2010)",
+            "What to Expect When You're Expecting (2012)",
+            "Not Another Teen Movie (2001)",
+            "The Fast and thr Furious: Tokyo Drift (2006)",
+            "Charlie's Angels: Full Throttle (2003)",
+            "13 Going on 30 (2004)",
+            "The Lord of the Rings: The Fellowship of the Ring (2001)",
+            "The Lord of the Rings: The Return of the King (2003)",
+            "The Lord of the Rings: The Two Towers (2002)",
+            "The Hobbit: An Unexpected Journey (2012)",
+            "Harry Potter and the Philosopher's Stone (2001)",
+            "Harry Potter and the Prisoner of Azkaban (2004)",
+            "Harry Potter and the Chamber of Secrets (2002)",
+            "Harry Potter and the Goblet of Fire (2005)",
+            "Harry Potter and the Order of the Phoenix (2007)",
+            "Harry Potter and the Deathly Hallows: Part 2 (2011)",
+            "Harry Potter and the Deathly Hallows: Part 1 (2010)",
+            "Harry Potter and the Half-Blood Prince (2009)",
+            "Return of the Jedi (1983)",
+            "The Emipre Strikes Back (1980)",
+            "Star Wars (1977)",
+            "Star Wars: Episode III - Revenge of the Sith (2005)",
+            "Star Wars: Episode I - The Phantom Menace (1989)",
+            "Star Wars: Episode II - Attack of the Clones (2002)",
+            "Captain America: The First Avenger (2011)",
+            "Iron Man (2008)",
+            "The Incredible Hulk (2008)",
+            "Iron Man 2 (2010)",
+            "Thor (2011)",
+            "The Avengers (2012)",
+            "Sunrise: A Song of Two Humans (1927)",
+            "Man with a Movie Camera (1929)",
+            "The Maltese Falcon (1941)",
+            "Double Indemnity (1944)",
+            "Bicycle Thieves (1948)",
+            "Rope (1948)",
+            "Seven Samurai (1954)",
+            "The Killers (1956)",
+            "Vertigo (1958)",
+            "Touch of Evil (1958)",
+            "The 400 Blows (1959)",
+            "Psycho (1960)",
+            "Night of the Living Dead (1968)",
+            "Barton Fink (1991)",
+            "Chungking Express (1994)",
+            "La Haine (1995)",
+            "Gummo (1997)",
+            "Caché (2005)",
+            "You, the Living (2007)",
+            "Dogtooth (2009)",
+            "Melancholia (2011)",
+            "The Act of Killing (2012)",
+            /*GOATED*/
+                    
+
+
 
 
         ];
@@ -662,13 +1167,60 @@
                 window.open(this.dataset.link, '_blank');
             });
         });
-        
-    </script>
-    <div class="disclaimer">
-        Fan-made project inspired by Life is Strange.
-        All rights belong to their respective owners (Dontnod Entertainment & Square Enix). 
-        This is an unofficial project and is not affiliated with or endorsed by them.
+        function updateClocks() {
+            const now = new Date();
+            
+            const warrenTime = new Intl.DateTimeFormat("en-US", {
+                timeZone: "America/Los_Angeles",
+                hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: false
+            }).format(now);
 
-    </div>
+            const yourTime = new Intl.DateTimeFormat("en-US", {
+                hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: false
+            }).format(now);
+
+            document.getElementById("time-warren").textContent = warrenTime;
+            document.getElementById("time-you").textContent = yourTime;
+        }
+        updateClocks();
+        setInterval(updateClocks, 1000);
+
+        //*Eclipse easter egg for Oct 8th cuz that's when the eclipse is in game (end of episode 2)!*//
+        const eclipseEl = document.getElementById("eclipse");
+        const eclipseModal = document.getElementById("eclipse-modal");
+        const eclipseClose = document.getElementById("eclipse-close");
+
+        function checkEclipse () {
+            const today = new Date ();
+            const oregonDate = new Intl.DateTimeFormat("en-CA", {
+                timeZone: "America/Los_Angeles",
+                month: "2-digit",
+                day: "2-digit",
+            }).format (today);
+
+            if (oregonDate === "09-21") {
+                eclipseEl.classList.add("is-visible");
+
+            }
+        }
+        if (eclipseEl) {
+            checkEclipse();
+            eclipseEl.addEventListener("click",
+                function() {
+                    eclipseModal.classList.add("is-open");
+
+                });
+
+                eclipseClose.addEventListener("click", function() {
+                eclipseModal.classList.remove("is-open");
+            });
+
+            eclipseModal.addEventListener("click", function (e) {
+                if (e.target === eclipseModal) {
+                    eclipseModal.classList.remove("is-open");
+                }})};
+
+
+    </script>
     </body>
     </html>
