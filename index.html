@@ -548,9 +548,25 @@ line-height: 1.6;
     .bubble2 { width: 30px; height: 30px; }
     .bubble3 { width: 40px; height: 40px; }
 }
+html {
+    scrollbar-color: #42c879 #ffffff;
+    scrollbar-width: thin;
+    scroll-behavior: smooth;
+
+}
+::selection {
+    background: #29c5e8;
+    color: #ffffff;
+
+}
+:focus-visible {
+    outline: 2px solid #29c5e8;
+    outline-offset: 2px;
+}
         </style>
     </head>
     <body>
+        <!--19.21.16.5.18.13.1.24-->
         <div class="bubble bubble1"></div>
         <div class="bubble bubble2"></div>
         <div class="bubble bubble3"></div>
@@ -1237,6 +1253,23 @@ line-height: 1.6;
                 if (e.target === eclipseModal) {
                     eclipseModal.classList.remove("is-open");
                 }})};
+                //Super Max easter egg - typw "supermax"
+                let typedBuffer = "";
+                document.addEventListener("keydown", function(e) {
+                    if (e.key.length !== 1) return;
+                    typedBuffer += e.key.toLowerCase();
+                    if (typedBuffer.length > 60) typedBuffer = typedBuffer.slice(-60);
+                    if (typedBuffer.includes("19.21.16.5.18.13.1.24") || typedBuffer.includes("19211651813124")){
+                        alert("S U P E R M A X");
+                        typedBuffer = "";
+                        return;
+                    }
+                    if (typedBuffer.includes("supermax")){
+                        alert("That's why you're Super Max.");
+                        typedBuffer = "";
+                        return;
+                    }
+                });
 
 
     </script>
