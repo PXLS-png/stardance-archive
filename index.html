@@ -6,6 +6,7 @@
         <title>Warren's Sci-Fi & Pop Culture Archive</title>
         <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💾</text></svg>">
         <style>
+            /**Background gradient (font, layout)**/
             body{
                 margin: 0;
                 min-height: 100vh;
@@ -16,6 +17,7 @@
                 background: radial-gradient(circle at 50% 8%, #ffffff 0%, rgba(255, 255, 255, 0.65) 12%, transparent 35%),
                 linear-gradient(180deg, #7de8f5 0%, #29c5e8 45%, #16a9d2 72%, #42c879 100%);
             }
+            /**Main title**/
             h1{
             margin-top: 0;
             margin-bottom: 20px;
@@ -30,6 +32,7 @@
             0 0 20px rgba(255, 255, 255, 0.5),
             0 2px 8px rgba(0, 70, 120, 0.25);
             }
+            /**Big glass card everything sits in*/
             main {
                 max-width: 800px;
                 margin: 40px auto;
@@ -47,6 +50,7 @@
                  position: relative;
                  overflow: hidden;
             }
+            /**Diagonal light reflection on the card**/
             main::before {
                 content: '';
                 position: absolute;
@@ -64,6 +68,8 @@
                 pointer-events: none;
                 border-radius: 25px;
             }
+            /**Bubbles, floating glass spheres**/
+
 
             .bubble {
                 position: fixed;
@@ -106,6 +112,9 @@
                 bottom: 12%;
                 left: 15%;
             }
+
+            /**Movie of the Day card**/
+
 
             .movie-feature {
                 margin-top: 35px;
@@ -637,11 +646,23 @@ html {
 .bubble {
     cursor: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' ><text y='16' font-size='16'>🦋</text></svg>") 10 10, pointer;
 }
+/*Safari blur support*/
+main,
+.time-widget,
+.eclipse-modal,
+.warrens-playlist {
+    -webkit-backdrop-filter: blur(6px);
+
+}
+.aero-btn,
+.pick-card,
+.disclaimer {
+    -webkit-backdrop-filter: blur(4px);
+}
 
         </style>
     </head>
     <body>
-        <!--19.21.16.5.18.13.1.24-->
         <div class="bubble bubble1"></div>
         <div class="bubble bubble2"></div>
         <div class="bubble bubble3"></div>
@@ -738,7 +759,7 @@ html {
 
         <div class="eclipse-modal" id="eclipse-modal">
             <div class="eclipse-modal-box">
-                <button class="eclipse-close" id="eclipse-close">✕</button>
+                <button class="eclipse-close" id="eclipse-close" aria-label="Close">x</button>
                 <p class="eclipse-quote">
                     "Max, there was no eclipse scheduled today...I would know. I would."
                 </p>
@@ -791,7 +812,7 @@ html {
             "Aliens (1986)",
             "King Kong (1976)",
             "Northstar (1986)",
-            "Twelve Monkeys (1995)",
+            "12 Monkeys (1995)",
             "RoboCop (1987)",
             "The Terminator (1984)",
             "Total Recall (1990)",
@@ -845,7 +866,7 @@ html {
             "Memento (2000)",
             "The Girl Who Leapt Through Time (2006)",
             "The Sky Crawlers (2008)",
-            "In The Aftermath (1988)",
+            "In the Aftermath (1988)",
             "Frequently Asked Questions About Time Travel (2009)",
             "Timecrimes (2007)",
             "Run Lola Run (1998)",
@@ -877,7 +898,6 @@ html {
             "Inception (2010)",
             "The Terminator 2: Judgement Day (1991)",
             "Minority Report (2002)",
-            "12 Monkeys (1995)",
             "Contact (1997)",
             "Gravity (2013)",
             "Gattaca (1997)",
@@ -892,7 +912,7 @@ html {
             "The Man From Earth (2007)",
             "Coherence (2013)",
             "Prometheus (2012)",
-            "Abyss (1989)",
+            "The Abyss (1989)",
             "Rise of the Planet of the Apes (2011)",
             "Cloverfield (2008)",
             "Back to the Future Part II (1989)",
@@ -994,7 +1014,6 @@ html {
             "Urusei Yatsura: Beautiful Dreamer (1984)",
             "Millennium Actress (2001)",
             "Dead Leaves (2004)",
-            "In the Aftermath (1988)",
             "Re: Cutie Honey (2004)",
             "Martian Successor Nadesico: The Motion Picture - Prince of Darkness (1998)",
             "Bio Hunter (1995)",
@@ -1092,10 +1111,9 @@ html {
             "The Fabulous Baker Boys (1989)",
             "Black Rain (1989)",
             "Batman (1989)",
-            "Indiana Jones and the Last Crusade",
+            "Indiana Jones and the Last Crusade (1989)",
             "A Short Film About Love (1988)",
             "Drugstore Cowboy (1989)",
-            "The Abyss (1989)",
             "The Seventh Continent (1989)",
             "For All Mankind (1989)",
             "Dead Calm (1989)",
@@ -1133,7 +1151,6 @@ html {
             "The Flower of My Secret (1995)",
             "Same Love, Same Rain (1999)",
             "Desert Hearts (1985)",
-            "Harry Potter and the Deathly Hollows Part 2 (2011)",
             "Shaun of the Dead (2004)",
             "Spider-Man 2 (2004)",
             "The Social Network (2010)",
@@ -1168,10 +1185,8 @@ html {
             "Harry Potter and the Deathly Hallows: Part 2 (2011)",
             "Harry Potter and the Deathly Hallows: Part 1 (2010)",
             "Harry Potter and the Half-Blood Prince (2009)",
-            "The Empire Strikes Back (1980)",
             "Star Wars (1977)",
             "Star Wars: Episode III - Revenge of the Sith (2005)",
-            "Star Wars: Episode I - The Phantom Menace (1999)",
             "Star Wars: Episode II - Attack of the Clones (2002)",
             "Captain America: The First Avenger (2011)",
             "Iron Man (2008)",
@@ -1207,6 +1222,14 @@ html {
 
 
         ];
+        function hashCode(str) {
+            let hash = 0
+            for (let i = 0; i < str.length; i++) {
+                hash = ((hash << 5) -hash) + str.charCodeAt(i);
+                hash |=0;
+            }
+            return hash;
+        }
         const button = document.getElementById("movie-button");
         const result = document.getElementById("movie-result");
 
@@ -1218,8 +1241,7 @@ html {
                 month: "2-digit",
                 day: "2-digit"
             }).format(today);
-            const dateNumber = Number(oregonDate.replace(/-/g,""));
-            const movieIndex = dateNumber % movies.length;
+            const movieIndex = Math.abs(hashCode(oregonDate)) % movies.length;
 
             //Special date overrides (month-day format)
             const specialMovies = {
@@ -1294,11 +1316,11 @@ html {
             
             const warrenTime = new Intl.DateTimeFormat("en-US", {
                 timeZone: "America/Los_Angeles",
-                hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: false
+                hour: "2-digit", minute: "2-digit", second: "2-digit", hourCycle: "h23"
             }).format(now);
 
             const yourTime = new Intl.DateTimeFormat("en-US", {
-                hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: false
+                hour: "2-digit", minute: "2-digit", second: "2-digit", hourCycle: "h23"
             }).format(now);
 
             document.getElementById("time-warren").textContent = warrenTime;
@@ -1341,7 +1363,13 @@ html {
                 if (e.target === eclipseModal) {
                     eclipseModal.classList.remove("is-open");
                 }})};
-                //Super Max easter egg - typw "supermax"
+                document.addEventListener("keydown", function(e) {
+                    if (e.key === "Escape") {
+                        eclipseModal.classList.remove("is-open");
+
+                    }
+                })
+                //easter egg
                 let typedBuffer = "";
                 document.addEventListener("keydown", function(e) {
                     if (e.key.length !== 1) return;

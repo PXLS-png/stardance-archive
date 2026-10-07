@@ -4,7 +4,7 @@ A Life is Strange fan site inspired by Warren Graham - a small interactive archi
 <!-- Screenshot coming soon -->
 
 ## Try it
-Live demo: coming soon, it will be on GitHub Pages.
+Live demo: https://pxls-png.github.io/stardance-archive/
 
 ## Quick Start
 There is no setup, no installs and no build step needed. Just open the file.
@@ -39,7 +39,7 @@ That's it.
 
 - **Frutiger Aero styling** glassy panels made with `backdrop-filter: blur()` and `::before` pseudo-element reflections.
 
-- **Mobile responsive** a media query at 600px shrinks the layout for phones and iPads 
+- **Mobile responsive** a media query at 600px shrinks the layout for phones. 
 
 - **A few hidden things** some might be animations, secret codes, messages etc. Keeping an eye out for secrets is strongly encouraged.
 
