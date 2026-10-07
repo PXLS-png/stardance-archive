@@ -691,7 +691,7 @@ html {
                 <div class="pick-quote">"I'll be in the TARDIS getting my Delorean ready." -W</div>
             </div>
             <!---Movie 5-->
-            <div class="pick-card" data-movie="Twilight(2008)" data-link="https://www.imdb.com/title/tt1099212/">
+            <div class="pick-card" data-movie="Twilight (2008)" data-link="https://www.imdb.com/title/tt1099212/">
                 <div class="pick-year">2008</div>
                 <div class="pick-title">Twilight</div>
                 <div class="pick-quote">"Can't a sensitive high school boy love sensitive vampires too?" -W</div>
@@ -1357,6 +1357,12 @@ html {
                         typedBuffer = "";
                         return;
                     }
+                });
+                //Copy cat message prank//
+                document.addEventListener('copy', function(e) {
+                    const selected = document.getSelection().toString();
+                    e.clipboardData.setData('text/plain', selected + '\n\nCopying my archive? I\'m taking it as a compliment. -W');
+                    
                 });
                 </script>
 
