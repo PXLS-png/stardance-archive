@@ -790,16 +790,12 @@ main,
             "Somewhere in Time (1980)",
             "G.I. Samurai (1979)",
             "Timecop (1994)",
-            "Tetsuo: The Iron Man (1989)",
             "Faster, Pussycat! Kill! Kill! (1965)",
             "Weird Science (1985)",
             "The Empire Strikes Back (1980)",
-            "Nekromantik (1988)",
-            "Beneath the Valley of the Ultra-Vixens (1979)",
             "The X-Files (1998)",
             "Fullmetal Alchemist the Movie: Conqueror of Shamballa (2005)",
             "Doctor Who (1996)",
-            "Cannibal Holocaust (1980)",
             "Not of This Earth (1957)",
             "Plan 9 from Outer Space (1957)",
             "Night of the Lepus (1972)",
@@ -884,7 +880,6 @@ main,
             "Chaos Theory (2008)",
             "The Darkroom (2006)",
             "The Shining (1980)",
-            "Blue Is the Warmest Color (2013)",
             "Maximum Overdrive (1986)",
             "The Girl with the Dragon Tattoo (2011)",
             "Friday Night Lights (2004)",
@@ -961,7 +956,6 @@ main,
             "Eraserhead (1977)",
             "Scooby-Doo and the Ghoul School (1988)",
             "Kite (1998)",
-            "Dumpling (2004)",
             "Cube (1997)",
             "The Ice Pirates (1984)",
             "Spacehunters: Adventures in the Forbidden Zone (1983)",
@@ -982,13 +976,11 @@ main,
             "Species (1995)",
             "Mimic (1997)",
             "Splice (2009)",
-            "Inseminoid (1981)",
             "The Incredible Melting Man (1977)",
             "Re-Animator (1985)",
             "From Beyond (1986)",
             "Fortress (1992)",
             "Vanilla Sky (2001)",
-            "Mysterious Skin (2004)",
             "The Deadly Spawn (1983)",
             "Shorts (2009)",
             "Phantasm (1979)",
@@ -1016,25 +1008,18 @@ main,
             "Neo Tokyo (1987)",
             "Urusei Yatsura: Beautiful Dreamer (1984)",
             "Millennium Actress (2001)",
-            "Dead Leaves (2004)",
             "Re: Cutie Honey (2004)",
             "Martian Successor Nadesico: The Motion Picture - Prince of Darkness (1998)",
-            "Bio Hunter (1995)",
-            "Angel Cop (1989)",
-            "Goku Midnight Eye (1989)",
             "Megazone 23 II (1986)",
             "Megazone 23 (1985)",
             "Dislocation (1986)",
             "Sixty Million Dollar Man (1995)",
             "CJ7 (2008)",
             "The Wicked City (1992)",
-            "Wonder Boy (1988)",
             "House (1977)",
             "Crime Wave (1985)",
             "Funeral Parade of Roses (1969)",
             "Night Tide (1961)",
-            "Folies Meurtrières (1984)",
-            "Uma to onna to inu (1990)",
             "Daisies (1966)",
             "The Passion of Joan of Arc (1928)",
             "Children of Paradise (1945)",
@@ -1213,7 +1198,6 @@ main,
             "Gummo (1997)",
             "Caché (2005)",
             "You, the Living (2007)",
-            "Dogtooth (2009)",
             "Melancholia (2011)",
             "The Act of Killing (2012)",
             /*Goated*/
@@ -1233,6 +1217,19 @@ main,
         }
         const button = document.getElementById("movie-button");
         const result = document.getElementById("movie-result");
+        const matureMovies = [
+            "The Dorm That Dripped Blood (1982)",
+            "The Deadly Spawn (1983)",
+            "Re-Animator (1985)",
+            "From Beyond (1986)",
+            "Videodrome (1983)",
+            "The Wicked City (1992)",
+            "A Clockwork Orange (1971)",
+            "American Psycho (2000)",
+            "Battle Royale (2000)"
+            
+        ];
+
 
         button.addEventListener("click", function(){
             const today = new Date();
@@ -1260,8 +1257,12 @@ main,
                 movie = movies[movieIndex];
 
             }
+            if (matureMovies.includes(movie)) {
+                result.textContent = movie + " (mature)";
+            } else {
+                result.textContent = movie;
+            }
 
-            result.textContent = movie;
             });
             const bubbles = document.querySelectorAll(".bubble");
             bubbles.forEach(function(bubble){
