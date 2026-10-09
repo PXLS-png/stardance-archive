@@ -1,7 +1,7 @@
 # Warren's Sci-Fi & Pop Culture Archive
 A Life is Strange fan site inspired by Warren Graham - a small interactive archive of movies, music, and pop culture references.
 
-<!-- Screenshot coming soon -->
+![Screenshot](IMG_5971.jpeg)
 
 ## Try it
 Live demo: https://pxls-png.github.io/stardance-archive/
