@@ -1305,13 +1305,22 @@ main,
             }
         });
         }
-        //This is gonna be the Warren's picks section: click a movie and show the quote (Edit: nvrmind)//
-        const pickCards = document.querySelectorAll('.pick-card');
-        pickCards.forEach(function(card) {
-            card.addEventListener('click', function(){
-                window.open(this.dataset.link, '_blank');
-            });
+       // Top 5 picks: click or press Enter to open the IMDb page
+       const pickCards = document.querySelectorAll('.pick-card');
+       pickCards.forEach(function(card) {
+        card.setAttribute('tabindex', '0');
+        card.setAttribute('role', 'link');
+        card.setAttribute('aria-label', card.dataset.movie + ' on IMDb');
+        card.addEventListener('click', function(){
+            window.open(this.dataset.link, '_blank');
         });
+        card.addEventListener('keydown', function(e){
+            if (e.key === 'Enter') {
+                window.open(this.dataset.link, '_blank');
+            }
+        });
+
+       });
         function updateClocks() {
             const now = new Date();
             
