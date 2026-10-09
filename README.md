@@ -17,7 +17,7 @@ git clone https://github.com/PXLS-png/stardance-archive.git
 That's it.
 
 ## Features
-- **Movie of the Day** a new film every day, picked by date. It changes at midnight Pacific time, because the game takes place in Oregon. The list merges various different genres - sci-fi classics, cult picks, foreign films, weird 80s oddities, and everything in between. 
+- **Movie of the Day** a new film every day, picked by date. It changes at midnight Pacific time, because the game takes place in Oregon. The list merges various genres - sci-fi classics, cult picks, foreign films, weird 80s oddities, and everything in between. 
 
 - **Special date overrides** on a few specific dates which are meaningful to the Life is Strange storyline, the system operates with fixed movies. Contrary to the regular randomized rotation, these fixed movies are closely tied to distinctive in-game moments.
 
