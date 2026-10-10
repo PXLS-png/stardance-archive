@@ -40,12 +40,12 @@ That's basically it guys
  - There is a lot to explore even though its a pretty simple website! Always keep an eye open for the easter eggs!
 
 ## Personal Statement 
-My main idea with Warren's Sci-Fi & Pop Culture Archive was to turn my love for gaming and movies into a real project. I rewrote this README for my second ship, since the first one was AI flagged. I used the emojis cuz I thought it matches the frutiger aero style.
+My main idea with Warren's Sci-Fi & Pop Culture Archive was to turn my love for gaming and movies into a real project. I rewrote this README for my second ship. I used the emojis cuz I thought it matches the frutiger aero style.
 
 ## Credits 🦋
 - **Life is Strange** and all characters belong to Dontnod Entertainment and Square Enix. This is an **unofficial fan project**, not affiliated with or endorsed by them. All rights belong to the owners.
 
--**Background**: "Frutiger Aero Composite" by aarón9 is marked with Public Domain Mark 1.0. To view the terms, visit https://creativecommons.org/publicdomain/mark/1.0/?ref=openverse.
+- **Background**: "Frutiger Aero Composite" by aarón9 is marked with Public Domain Mark 1.0. To view the terms, visit https://creativecommons.org/publicdomain/mark/1.0/?ref=openverse.
 
 - Made for **Hack Club Stardance**
 
