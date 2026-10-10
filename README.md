@@ -1,7 +1,7 @@
-# Warren's Sci-Fi & Pop Culture Archive 🫧
+## Warren's Sci-Fi & Pop Culture Archive 🫧
 A Life is Strange fan site inspired by Warren Graham, it's a small interactive archive about movies, music, sci-fi and much more!
 
-![Screenshot](IMG_5971.jpeg)
+![Screenshot](new screenshot coming soon:i changed the background)
 
 ## Try it 
 Live demo: https://pxls-png.github.io/stardance-archive/
@@ -35,7 +35,7 @@ That's basically it guys
 
 - Movie of the Day uses `Intl.DateTimeFormat` with the `America/Los_Angeles` timezone to get today's date in Oregon, then it turns that date into a number. After that happens, it picks a position within the list, checks for special dates so they stay as they are, and then it shows the movie. Special date overrides work the exact same way, certain month-day pairs = specific movies instead of the normal rotation.
 
-- The Frutiger Aero aesthetic is created by glassy panels made with `backdrop-filter: blur()` and a background image I selected from the Freepik image archive. It is inspired by the early-2000s design movement, and early windows aesthetic. A media query at 600px shrinks the layout for phones. 
+- The Frutiger Aero aesthetic is created by glassy panels made with `backdrop-filter: blur()` and a background image I selected. It is inspired by the early-2000s design movement, and early windows aesthetic. A media query at 600px shrinks the layout for phones.
 
  - There is a lot to explore even though its a pretty simple website! Always keep an eye open for the easter eggs!
 
@@ -45,7 +45,7 @@ My main idea with Warren's Sci-Fi & Pop Culture Archive was to turn my love for 
 ## Credits 🦋
 - **Life is Strange** and all characters belong to Dontnod Entertainment and Square Enix. This is an **unofficial fan project**, not affiliated with or endorsed by them. All rights belong to the owners.
 
-- **Frutiger Aero aesthetic** inspired by the early-2000s design movement, and early windows aesthetic. I selected a background image that matches the frutiger aero aesthetic from Freepik.
+-**Background**: "Frutiger Aero Composite" by aarón9 is marked with Public Domain Mark 1.0. To view the terms, visit https://creativecommons.org/publicdomain/mark/1.0/?ref=openverse.
 
 - Made for **Hack Club Stardance**
 
