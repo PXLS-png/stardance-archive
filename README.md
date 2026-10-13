@@ -1,6 +1,8 @@
 ## Warren's Sci-Fi & Pop Culture Archive 🫧
 A Life is Strange fan site inspired by Warren Graham, it's a small interactive archive about movies, music, sci-fi and much more!
 
+If you enjoy it, feel free to leave a ⭐!
+
 ![Screenshot](IMG_6037.jpeg)
 
 ## Try it 
